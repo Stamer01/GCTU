@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission - GCTU</title>
+    <link rel="icon" href="image/favicon.png" type="image/png">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        .container {
+            padding: 15px;
+        }
+    }
+
+    .list_css {
+        list-style-type: none;
+        margin-left: 20px;
+    }
+</style>
+
+<div id="header"></div>
+
+
+
+<div class="container">
+    <img src="gctu-executive-wing.jpg" alt="GCTU Executive Wing">
+    <h1>Our Mission - GCTU</h1>
+
+    <p>GCTU is a center for academic excellence providing an enabling environment for quality teaching and learning,
+        research, intellectual creativity, innovation, and service to the community.</p>
+
+    <p>The university promotes relevant cutting-edge technology,
+        leadership development, and an enterprise culture to deliver value to Ghana and the world.</p>
+
+    <h2>Vision</h2>
+    <p>GCTU aspires to be a world-class university promoting scholarship, innovative research, cutting-edge
+        technology,
+        entrepreneurship, and developing outstanding students and staff for national and global development.</p>
+
+    <h2>Core Values</h2>
+    <ul class="list_css">
+        <li>Excellence</li>
+        <li>Student-Centeredness</li>
+        <li>Academic Freedom</li>
+        <li>Innovation</li>
+        <li>Integrity</li>
+    </ul>
+</div>
+
+
+<div id="footer"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        loadComponent("header.html", "header");
+        loadComponent("footer.html", "footer");
+    });
+
+    function loadComponent(url, elementId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).insertAdjacentHTML("beforeend", data);
+            })
+            .catch(error => console.error(`Error loading ${url}:`, error));
+    }                
+</script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        const menuToggle = document.getElementById("menu-toggle");
+        menu.classList.toggle("show");
+        menuToggle.innerHTML = menu.classList.contains("show") ? "&#10006;" : "&#9776;";
+    }
+
+    function toggleDropdown(event, element) {
+        event.preventDefault();
+        const parent = element.closest(".has-dropdown");
+        const allDropdowns = document.querySelectorAll(".has-dropdown");
+
+        allDropdowns.forEach(dropdown => {
+            if (dropdown !== parent) {
+                dropdown.classList.remove("active");
+            }
+        });
+
+        parent.classList.toggle("active");
+    }
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".has-dropdown")) {
+            document.querySelectorAll(".has-dropdown").forEach(dropdown => {
+                dropdown.classList.remove("active");
+            });
+        }
+    });
+</script>
+
+</html>
+
+
+

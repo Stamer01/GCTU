@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="image/favicon.png" type="image/png">
+<style>
+body {
+  font-family: Arial;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #093a69;
+  text-align: center;
+}
+
+.tab button {
+  background-color: inherit;
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  transition: 0.3s;
+  font-size: 16px;
+  color: white;
+}
+
+.tab button:hover {
+  background-color: #0b2744;
+}
+
+.tab button.active {
+  background-color: #0b2a49;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-box, .form-container {
+  background: #fbfbfb;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background: #052444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e2c628;
+}
+
+.Dont {
+  margin-top: 1rem;
+}
+
+.Dont a {
+  color: #09233d;
+  text-decoration: none;
+}
+
+.Dont a:hover {
+  text-decoration: underline;
+}
+
+.custom-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-logo {
+  width: 32px;
+  height: 32px;
+  display: none;
+  object-fit: contain;
+}
+
+</style>
+</head>
+<body>
+
+    <div id="header"></div>
+
+<h2>HOW TO APPLY</h2>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Instructions to follow')">Instructions to follow</button>
+  <button class="tablinks" onclick="openCity(event, 'My Application')">My Application</button>
+  <button class="tablinks" onclick="openCity(event, 'Purchase voucher')">Purchase voucher</button>
+  <button class="tablinks" onclick="openCity(event, 'Contact us')">Contact us</button>
+</div>
+
+<div id="Instructions to follow" class="tabcontent">
+  <h3>Option 1</h3>
+  <p>Please visit any branch of Consolidated Bank Ghana (CBG) to purchase a serial number and pin for this online application.
+After purchase, please ensure your serial number and pin are visibly printed on your bank receipt before leaving the premises. If you noticed your receipt has an invalid serial number or pin, please return to the same Bank for correction.</p>
+
+<h3>OPTION 2</h3>
+<p>You can purchase a Voucher using Mobile Money or Bank Card.<br><br>
+<button type="button" onclick="openCity(event, 'Purchase voucher')">Purchase Voucher</button>
+</p>
+
+<h3>Option 3</h3>
+<p>Dial *924*200*3# on all networks to purchase voucher.
+If you already have a serial number and pin, please click the "Start Application" button<br><br><button type="button" onclick="openCity(event, 'My Application')">Start Your Application</button>
+</p>
+</div>
+
+<div id="My Application" class="tabcontent">
+  <h3>Start your application by entering your serial number and pin</h3>
+  <div class="form-box">
+    <form>
+      <div class="form-group">
+        <label for="Serial Number">Serial Number</label>
+        <input type="text" id="serial-number" placeholder="Enter Serial Number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="Pin">Pin</label>
+        <input type="password" id="pin" placeholder="Enter Pin" required>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <div class="Dont">
+        Don't have a serial number and pin?<br><a href="#" onclick="openCity(event, 'Purchase voucher')">Click here for more information.</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="Purchase voucher" class="tabcontent">
+  <h3>Payment Instructions</h3>
+  <p>All fields marked * are mandatory
+Select any of the payment methods available and provide the required information.
+This online purchase will incur transaction charges.</p>
+
+  <p>Please make sure you have enough balance on the Mobile or Card Wallet.</p>
+  <p><b>HINT: Mature Application Forms are ONLY for applicants 25 years and above.</b></p>
+  <p><b>Note: Voucher purchased will only be usable for applications within the chosen academic year.</b></p>
+
+  <div class="form-container">
+    <h1>GCTU Application Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="applicant-type">Applicant Type *</label>
+        <select id="applicant-type" required>
+          <option value="">Select Type</option>
+          <option value="undergraduate">Undergraduate</option>
+          <option value="postgraduate">Postgraduate</option>
+          <option value="diploma">Diploma</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age *</label>
+        <input type="number" id="age" required>
+      </div>
+
+      <div class="form-group">
+        <label for="form-type">Application Form Type *</label>
+        <select id="form-type" required>
+          <option value="">Select Form Type</option>
+          <option value="regular">Regular</option>
+          <option value="mature">Mature</option>
+          <option value="distance">Distance Learning</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="payment-method">Payment Method *</label>
+        <div class="custom-select-wrapper">
+          <img id="payment-logo" src="" alt="" class="payment-logo" />
+          <select id="payment-method" required onchange="updatePaymentLogo()">
+            <option value="">Select Payment Method</option>
+            <option value="momo">MTN Mobile Money</option>
+            <option value="vodafone">Vodafone Cash</option>
+            <option value="airteltigo">AirtelTigo Money</option>
+            <option value="card">Debit Card</option>
+          </select>
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telephone_number">Phone Number *</label>
+        <input type="tel" id="telephone_number" required>
+      </div>
+
+      <button type="submit">Continue Application</button>
+    </form>
+  </div>
+</div>
+
+<div id="Contact us" class="tabcontent">
+  <p><b>For any queries please contact Admissions Office Main Hotline/Whatsapp Number (233)501579732. Thank you</b></p>
+</div>
+ 
+<div id="footer"></div>
+<script src="displayHf.js"></script>
+<script src="HF-function.js"></script>
+
+<script>
+    // Function to open the correct tab
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  
+    // Set the first tab as the default when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector(".tablinks").click();  // Simulate click on the first tab
+    });
+</script>
+
+
+<script>
+  function updatePaymentLogo() {
+    const select = document.getElementById("payment-method");
+    const logo = document.getElementById("payment-logo");
+    const value = select.value;
+
+    const logoMap = {
+      momo: "mtn.png",
+      vodafone: "vodafone.png",
+      airteltigo: "airteltigo.png",
+      card: "debit.png"
+    };
+
+    if (logoMap[value]) {
+      logo.src = logoMap[value];
+      logo.style.display = "inline-block";
+      logo.alt = value;
+    } else {
+      logo.src = "";
+      logo.style.display = "none";
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

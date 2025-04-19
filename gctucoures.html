@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>GCTU Courses</title>
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        color: #fcfcfc;
+        margin: 0 0 10px;
+    }
+
+    h2 {
+        color: #eff1f3;
+        margin-top: 30px;
+        font-weight: 700;
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin: 10px 0;
+        color: #f8f7f6;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 20px 0;
+        color: #2d2929;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .first-section button {
+        background-color: #0b2964;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .first-section button:hover {
+        background-color: #eec439;
+        color: #100b3f;
+    }
+
+    .popup .close-btn {
+        background: #d0260c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .profile button {
+        background-color: #0b2964;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .profile button:hover {
+        background-color: #eec439;
+        color: #100b3f;
+    }
+
+    .popup button {
+        background-color: #0b2964;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .popup button:hover {
+        background-color: #eec439;
+        color: #100b3f;
+    }
+
+    .profiles-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px;
+        gap: 20px;
+    }
+
+    .profile {
+        text-align: center;
+        width: 350px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        width: 90%;
+        max-width: 400px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    }
+
+    .popup h4 {
+        margin-top: 10px;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        color: #080808;
+    }
+
+    .popup ul {
+        text-align: left;
+        color: #333;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+    }
+
+    .close-btn {
+        background: #d0260c;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .first-section {
+        background-image: url('gctugate.jpg');
+        background-size: cover;
+        background-color: #f3eded;
+        background-position: center;
+        padding: 150px 0;
+        color: black;
+    }
+
+
+    .section-title {
+        padding: 20px;
+        background-color: #eec439;
+        margin-top: 50px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(9, 50, 88);
+        border-radius: 5px;
+    }
+
+
+   
+</style>
+
+<body>
+     
+    <div id="header"></div>
+
+    <div class="first-section">
+        <h1>Welcome to GCTU </h1>
+        <p style="color: #eaecf0;" >Explore our courses and enhance your skills!</p>
+        <button onclick="document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });">Apply Now</button>
+
+    </div>
+
+    <div class="section-title" id="courses">Courses Offered at GCTU</div>
+
+
+<!-- Courses Section -->
+
+<div class="profiles-container">
+    <!-- Course Profiles -->
+    <div class="profile">
+        <img src="computer science.png" alt="Computer Science">
+        <h4>Computer Science </h4>
+        <p>Learn about both hardware and software.</p>
+        <button onclick="showPopup('computer-science-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="mobile computing logo.png" alt="Mobile Computing">
+        <h4>Mobile Computing</h4>
+        <p>Understand mobile communication theory and professional practices.</p>
+        <button onclick="showPopup('mobile-computing-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="data science logo.png" alt="Data Science">
+        <h4>Data Science</h4>
+        <p>Analyze data, build models, and make data-driven decisions.</p>
+        <button onclick="showPopup('data-science-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="web Design logo.png" alt="Web Design">
+        <h4>Web Design</h4>
+        <p>Learn UX/UI design, HTML, CSS, and responsive layouts.</p>
+        <button onclick="showPopup('web-design-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="ai logo.png" alt="Artificial Intelligence">
+        <h4>Artificial Intelligence</h4>
+        <p>Enhance your profile with an AI Certification Course.</p>
+        <button onclick="showPopup('artificial-intelligence-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="Software_Engineering_logo.png" alt="Software Engineering">
+        <h4>Software Engineering</h4>
+        <p>Learn how to design, develop, test, and maintain software.</p>
+        <button onclick="showPopup('software-engineering-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="mobile computing logo.png" alt="Mobile App Development">
+        <h4>Mobile App Development</h4>
+        <p>Introduction to mobile development for aspiring software engineers.</p>
+        <button onclick="showPopup('mobile-app-development-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="Digital marketing.png" alt="Digital Marketing">
+        <h4>Digital Marketing</h4>
+        <p>Learn the fundamentals of digital marketing through online technologies.</p>
+        <button onclick="showPopup('digital-marketing-popup')">Read More</button>
+    </div>
+
+    <div class="profile">
+        <img src="Graphic designing logo.jpg" alt="Graphic Design">
+        <h4>Graphic Design</h4>
+        <p>Use traditional and digital tools to create visual solutions.</p>
+        <button onclick="showPopup('graphic-design-popup')">Read More</button>
+    </div>
+</div>
+
+<!-- Popups -->
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="computer-science-popup">
+    <button class="close-btn" onclick="hidePopup('computer-science-popup')">X</button>
+    <h4>Computer Science</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Software Engineering</li>
+        <li>Programming</li>
+        <li>Data Structures</li>
+        <li>Cybersecurity</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="mobile-computing-popup">
+    <button class="close-btn" onclick="hidePopup('mobile-computing-popup')">X</button>
+    <h4>Mobile Computing</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Mobile Communications Theory</li>
+        <li>Technical Skills</li>
+        <li>Advocacy Skills</li>
+        <li>Social Awareness</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="data-science-popup">
+    <button class="close-btn" onclick="hidePopup('data-science-popup')">X</button>
+    <h4>Data Science</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Programming Languages</li>
+        <li>Statistics and Mathematics</li>
+        <li>Machine Learning</li>
+        <li>Data Visualization</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="web-design-popup">
+    <button class="close-btn" onclick="hidePopup('web-design-popup')">X</button>
+    <h4>Web Design</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>HTML Programming</li>
+        <li>CSS Styling</li>
+        <li>UX/UI Design</li>
+        <li>JavaScript Programming</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="artificial-intelligence-popup">
+    <button class="close-btn" onclick="hidePopup('artificial-intelligence-popup')">X</button>
+    <h4>Artificial Intelligence</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Machine Learning</li>
+        <li>Data Analysis</li>
+        <li>Neural Networks</li>
+        <li>JavaScript Programming</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="software-engineering-popup">
+    <button class="close-btn" onclick="hidePopup('software-engineering-popup')">X</button>
+    <h4>Software Engineering</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Software Design & Architecture</li>
+        <li>Testing & Quality Assurance</li>
+        <li>Software Security</li>
+        <li>Project Management</li>
+        <li>CI/CD</li>
+        <li>Computer Architecture</li>
+        <li>Software Development</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="mobile-app-development-popup">
+    <button class="close-btn" onclick="hidePopup('mobile-app-development-popup')">X</button>
+    <h4>Mobile App Development</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Programming Languages</li>
+        <li>Platform-Specific Development</li>
+        <li>Core Concepts</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="digital-marketing-popup">
+    <button class="close-btn" onclick="hidePopup('digital-marketing-popup')">X</button>
+    <h4>Digital Marketing</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Content Marketing</li>
+        <li>Social Media Marketing</li>
+        <li>Affiliate Marketing</li>
+        <li>Udemy Digital Marketing Course</li>
+        <li>Digital Marketing Certificate</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div class="popup" id="graphic-design-popup">
+    <button class="close-btn" onclick="hidePopup('graphic-design-popup')">X</button>
+    <h4>Graphic Design</h4>
+    <p>Subject that you will be Learning</p>
+    <ul>
+        <li>Graphic Design Fundamentals</li>
+        <li>Typography</li>
+        <li>Color Theory</li>
+        <li>Photoshop & Illustrator</li>
+        <li>Digital Illustration</li>
+    </ul>
+    <a href="How to Apply.html" target="_blank">
+        <button>APPLY NOW</button>
+    </a>
+</div>
+
+<div id="footer"></div>
+
+<script src="displayHf.js"></script>
+<script src="HF-function.js"></script>
+
+<script>
+    function showPopup(popupId) {
+        document.getElementById(popupId).style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function hidePopup(popupId) {
+        document.getElementById(popupId).style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

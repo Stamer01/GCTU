@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCTU Header</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+ <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      
+      .site_topheader {
+        background-color: #f2c840;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .site_topheader form {
+        display: flex;
+        gap: 5px;
+      }
+      
+      .site_topheader input {
+
+        padding: 5px;
+        width: 200px;
+      }
+      
+      .site_topheader button {
+        padding: 5px 15px;
+        border: none;
+        background-color: #004080;
+        color: white;
+        cursor: pointer;
+      }
+      
+      .header_buttons {
+        display: flex;
+        gap: 10px;
+      }
+      
+      .header_buttons button {
+        padding: 5px 15px;
+        border: none;
+        background-color: #004080;
+        color: white;
+        cursor: pointer;
+      }
+      
+      .header_buttons button:hover {
+        background-color: #002060;
+      }
+      
+      .site_header {
+        background-color: #004080;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      .logo img {
+        height: 60px;
+      }
+      
+      .menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .menu li {
+        position: relative;
+      }
+      
+      .menu a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 15px;
+        display: block;
+      }
+      
+      .menu a:hover {
+        background-color: #002060;
+      }
+      
+      .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f2c840;
+        list-style: none;
+        padding: 0;
+        min-width: 200px;
+        z-index: 1000;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .submenu li {
+        width: 100%;
+      }
+      
+      .submenu a {
+        padding: 10px;
+        display: block;
+        color: #002060;
+      }
+      
+      .submenu a:hover {
+        background-color: #e0b830;
+      }
+      
+      .has-dropdown .submenu {
+        display: none;
+      }
+      
+      .has-dropdown.active .submenu {
+        display: block;
+      }
+      
+      .dropdown-icon {
+        margin-left: 5px;
+        font-size: 12px;
+        cursor: pointer;
+        color: white;
+      }
+      
+      .has-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+      }
+      
+      @media (max-width: 768px) {
+        .menu {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #004080;
+          text-align: left;
+        }
+      
+        .menu.show {
+          display: flex;
+        }
+      
+        .menu li {
+          width: 100%;
+          flex-direction: column;
+        }
+      
+        .header_buttons {
+          display: none;
+        }
+      
+        .menu-toggle {
+          display: block;
+        }
+      
+        .has-dropdown {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      
+        .has-dropdown .dropdown-icon {
+          align-self: flex-end;
+          margin-right: 15px;
+        }
+      
+        .submenu {
+          position: relative;
+          width: 100%;
+          background-color: #003060;
+          box-shadow: none;
+          border-radius: 0;
+        }
+      
+        .submenu a {
+          color: white;
+          padding: 10px 20px;
+        }
+      }
+      
+  </style>
+
+    
+<header>
+    <div class="site_topheader">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+        </form>
+        <div class="gctu_header_buttons_">
+            <a href="How to Apply.html">
+            <button>How to Apply</button></a>
+            <a href="GCTU Portal Login.html">
+            <button>Portal Login</button></a>
+        </div>
+    </div>
+
+    <header class="site_header">
+        <div class="logo">
+            <a href="home.html">
+            <img src="logo.png" alt="GCTU Logo"></a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <ul class="menu" id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gctu portal login.html">Portal</a></li>
+            <li><a href="#">Admissions</a></li>
+            
+            <li class="has-dropdown">
+                <a href="gctucoures.html">Courses</a>
+                <span class="dropdown-icon" onclick="toggleDropdown(event, this)">▼</span>
+                <ul class="submenu">
+                    <li><a href="#">Undergraduate</a></li>
+                    <li><a href="#">Postgraduate</a></li>
+                    <li><a href="#">Online Courses</a></li>
+                </ul>
+              </li>
+              
+            <li class="has-dropdown">
+                <a href="gctucoures.html">Student</a>
+                <span class="dropdown-icon" onclick="toggleDropdown(event, this)">▼</span>
+                <ul class="submenu">
+                    <li><a href="gctu portal login.html"> Student Portal </a></li>
+                    <li><a href="#">Clubs</a></li>
+                    <li><a href="#">Library</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Announcement</a></li>
+        </ul>
+    
+    </div>
+    
+
+    </header>
+
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById("menu");
+                const menuToggle = document.getElementById("menu-toggle");
+                menu.classList.toggle("show");
+                menuToggle.innerHTML = menu.classList.contains("show") ? "&#10006;" : "&#9776;";
+            }
+        
+            function toggleDropdown(event, element) {
+                event.preventDefault();
+                const parent = element.closest(".has-dropdown");
+                const allDropdowns = document.querySelectorAll(".has-dropdown");
+        
+                allDropdowns.forEach(dropdown => {
+                    if (dropdown !== parent) {
+                        dropdown.classList.remove("active");
+                    }
+                });
+        
+                parent.classList.toggle("active");
+            }
+        
+            document.addEventListener("click", function (event) {
+                if (!event.target.closest(".has-dropdown")) {
+                    document.querySelectorAll(".has-dropdown").forEach(dropdown => {
+                        dropdown.classList.remove("active");
+                    });
+                }
+            });
+        </script>
+    
+    
+    
